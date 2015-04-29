@@ -1,0 +1,17 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule . index.php
+
+# Tmp for large data uploads 
+<IfModule mod_php5.c>
+php_value upload_max_filesize 60M
+php_value post_max_size 60M
+</IfModule>
+Options -Indexes
+<IfModule php5_module>
+php_value date.timezone "Asia/Kolkata"
+</IfModule>
+
